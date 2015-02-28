@@ -2,6 +2,7 @@
 
 #include <QSvgRenderer>
 #include <QPainter>
+#include <QFile>
 
 SvgBtn::SvgBtn( int w, int h, QWidget* parent ) : SvgLbl( w, h, parent )
 {
@@ -42,18 +43,17 @@ void SvgBtn::setHelper( const QString &helperName )
 QString SvgBtn::NrToHex( int n )
 {
     QString res( "#" );
-    for( int i=0; i<3; i++ )
+    for( int i = 0; i < 3; i++ )
         res.append( ( ( n>>i ) & 1 ) == 1 ? "ff" : "00" );
     return res;
 }
 
 int SvgBtn::MouseEventToNr( QMouseEvent* ev )
 {
-    QPoint point = ev->pos();
-    QRgb rgb = helper.pixel( point );
+    QRgb rgb = helper.pixel( ev->pos() );
     if( rgb>>24 != 0xff )
         return -1;
-    for( int i=1; i<=4; i++ )
+    for( int i = 1; i <= 6; i++ )
         if( NrToHex( i ) == QColor( rgb ).name() )
             return i;
     return -1;
