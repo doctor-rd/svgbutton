@@ -18,9 +18,9 @@ Svg2updn::Svg2updn( const QString &svgName, int w, int h, QWidget* parent ) : Sv
 void Svg2updn::init()
 {
     timer.setSingleShot( true );
-    connect( this, SIGNAL( clicked( int ) ), this, SLOT( onClick( int ) ) );
-    connect( this, SIGNAL( released( int ) ), this, SLOT( onRelease( int ) ) );
-    connect( &timer, SIGNAL( timeout() ), this, SLOT( timerslot() ) );
+    connect(this, &Svg2updn::clicked, this, &Svg2updn::onClick);
+    connect(this, &Svg2updn::released, this, &Svg2updn::onRelease);
+    connect(&timer, &QTimer::timeout, this, &Svg2updn::timerslot);
     value = 0;
     setRange( 0, 100 );
 }

@@ -17,8 +17,8 @@ Svg2btn::Svg2btn( const QString &svgName, int w, int h, QWidget* parent ) : Svg2
 
 void Svg2btn::init()
 {
-    connect( this, SIGNAL( clicked( int ) ), this, SLOT( onClick( int ) ) );
-    connect( this, SIGNAL( released( int ) ), this, SLOT( onRelease( int ) ) );
+    connect(this, &Svg2btn::clicked, this, &Svg2btn::onClick);
+    connect(this, &Svg2btn::released, this, &Svg2btn::onRelease);
 }
 
 void Svg2btn::onClick( int id )

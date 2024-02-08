@@ -18,7 +18,7 @@ Svg2rad::Svg2rad( const QString &svgName, int w, int h, QWidget* parent ) : Svg2
 void Svg2rad::init()
 {
     idSelected = 0;
-    connect( this, SIGNAL( clicked( int ) ), this, SLOT( onClick( int ) ) );
+    connect(this, &Svg2rad::clicked, this, &Svg2rad::onClick);
 }
 
 int Svg2rad::getSelected()
