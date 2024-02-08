@@ -33,7 +33,7 @@ void SvgLbl::updateContent()
 {
     QByteArray tempData = origData;
     foreach( QString i, vars.keys() )
-        tempData.replace( ( "%" + i + "%" ).toLatin1(), vars[i].toLatin1() );
+        tempData.replace( ( "%" + i + "%" ).toUtf8(), vars[i].toUtf8() );
     QSvgRenderer renderer( tempData );
     QPixmap pixmap( width, height );
     pixmap.fill();
