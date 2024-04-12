@@ -90,3 +90,8 @@ int Svg2updn::calcInterval( int r )
         return 1000;
     return 100;
 }
+
+Svg2updn::operator int()
+{
+    return value;
+}

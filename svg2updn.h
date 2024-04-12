@@ -13,6 +13,7 @@ public:
     Svg2updn( const QByteArray &svgData, int w, int h, QWidget* parent = 0 );
     Svg2updn( const QString &svgName, int w, int h, QWidget* parent = 0 );
     void setRange( int min, int max );
+    operator int();
 public slots:
     void setValue( int v );
     void timerslot();
